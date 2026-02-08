@@ -1,0 +1,60 @@
+<odoo> <!-- list/List View -->
+    <record id="view_document_section_list" model="ir.ui.view">
+        <field name="name">document.section.list</field>
+        <field name="model">document.section</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="department_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_document_section_form" model="ir.ui.view">
+        <field name="name">document.section.form</field>
+        <field name="model">document.section</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" required="1"/>
+                        <field name="code"/>
+                        <field name="department_id" 
+                               options="{'no_create': True, 'no_open': True}"
+                               required="1"/>
+                    </group>
+
+                    <notebook>
+                        <page name="desks" string="Desks">
+                            <field name="desk_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="code"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Optional: Search View -->
+    <record id="view_document_section_search" model="ir.ui.view">
+        <field name="name">document.section.search</field>
+        <field name="model">document.section</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Section"/>
+                <field name="code"/>
+                <field name="department_id"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_department" string="Department" context="{'group_by': 'department_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+</odoo>

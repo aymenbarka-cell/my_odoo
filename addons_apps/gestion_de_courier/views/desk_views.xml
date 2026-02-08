@@ -1,0 +1,36 @@
+<odoo>
+  <data>
+    <record id="view_courrier_desk_list" model="ir.ui.view">
+      <field name="name">courrier.desk.list</field>
+      <field name="model">courrier.desk</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="department_id"/>
+        </list>
+      </field>
+    </record>
+
+    <record id="view_courrier_desk_form" model="ir.ui.view">
+      <field name="name">courrier.desk.form</field>
+      <field name="model">courrier.desk</field>
+      <field name="arch" type="xml">
+        <form string="Desk">
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="department_id"/>
+              <field name="user_ids"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="action_courrier_desk" model="ir.actions.act_window">
+      <field name="name">Desks</field>
+      <field name="res_model">courrier.desk</field>
+      <field name="view_mode">list,form</field>
+    </record>
+  </data>
+</odoo>

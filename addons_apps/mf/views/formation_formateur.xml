@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_form_formation_formateur" model="res.partner">
+            <field name="name">formation.formateur form</field>
+            <field name="model">formation.formateur</field>
+            <field name="arch" type="xml">
+                <form string="Tags">
+                    <sheet>
+                        <group string="Information globale">
+                            <field name="name"/>
+                            <field name="phone"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="form_formation_action" model="ir.actions.act_window">
+            <field name="name">formation formation</field>
+            <field name="res_model">formation.formateur</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">list,form</field>
+
+        </record>
+
+        <record id="formation_action_formateur" model="ir.actions.act_window">
+            <field name="name">formation</field>
+            <field name="res_model">formation.formateur</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">list,form</field>
+
+        </record>
+        <menuitem
+                id="formation_formateur_formateur"
+                parent="formation_menu"
+                action="formation_action_formateur"
+                sequence="5"/>
+    </data>
+</odoo>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="partner_1" model="res.partner">
+            <field name="name">hichem 1</field>
+            <field name="phone">0555555</field>
+
+        </record>
+        <record id="formateur_1" model="res.partner">
+            <field name="name">Mohamed 1</field>
+            <field name="phone">0555555</field>
+        </record>
+
+</odoo>

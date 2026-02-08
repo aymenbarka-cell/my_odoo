@@ -1,0 +1,39 @@
+<odoo>
+    <record id="view_department_list" model="ir.ui.view">
+        <field name="name">document.department.list</field>
+        <field name="model">document.department</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="direction_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_department_form" model="ir.ui.view">
+        <field name="name">document.department.form</field>
+        <field name="model">document.department</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="direction_id" options="{'no_create': True}"/>
+                    </group>
+                    <notebook>
+                        <page string="Sections">
+                            <field name="section_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="code"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_form_formation_salle" model="ir.ui.view">
+            <field name="name">formation.salle form</field>
+            <field name="model">formation.salle</field>
+            <field name="arch" type="xml">
+                <form string="Tags">
+                    <header>
+
+                        <button string="Liberer" class="btn" invisible="status in ['libre','maintenance']" type="object" name="Liberer"/>
+                        <button string="Maintenance" class="btn" invisible="status in ['en_cours','maintenance']" type="object" name="Maintenance"/>
+
+                        <field name="status" widget="statusbar" statusbar_visible="libre, en_cours, maintenance"/>
+                    </header>
+                    <sheet>
+
+                        <group>
+                            <group string="Information globale">
+                                <field name="name"/>
+                                 <field name="ref"/>
+                                <field name="type_ids" widget="many2many_tags"/>
+                            </group>
+                            <group string="autre">
+                                 <field name="nb_place"/>
+                                 <field name="date_creation"/>
+                                <field name="if_machine"/>
+                                 <field name="type_class"/>
+                            </group>
+                            <group>
+                                <field name="salle_immo_ids">
+                                    <list editable="bottom">
+                                        <field name="produit_id"/>
+                                        <field name="valeur_p"/>
+                                        <field name="currency_id" invisible="1" />
+                                        <field name="remarque"/>
+                                    </list>
+                                </field>
+                                <field name="somme"/>
+                                <field name="currency_id" invisible="1"/>
+                            </group>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_form_formation_salle_2" model="ir.ui.view">
+            <field name="name">formation.salle la liste</field>
+
+            <field name="model">formation.salle</field>
+            <field name="arch" type="xml">
+                <list string="formation salle" type="xml">
+
+                        <field name="ref"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="form_formation_action" model="ir.actions.act_window">
+            <field name="name">formation salle</field>
+            <field name="res_model">formation.salle</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">list,form</field>
+
+        </record>
+
+        <record id="formation_action" model="ir.actions.act_window">
+            <field name="name">salle</field>
+            <field name="res_model">formation.salle</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">list,form</field>
+
+        </record>
+        <menuitem
+        id="formation_menu"
+        name="formation menu principal"
+        sequence="20"/>
+
+         <menuitem
+        id="formation_salle_menu"
+        parent="formation_menu"
+        action="formation_action"
+        sequence="-1"/>
+    </data>
+</odoo>

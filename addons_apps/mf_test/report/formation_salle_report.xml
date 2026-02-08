@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="report_formation_salle"  model="ir.actions.report">
+        <field name="name">Fiche de salle</field>
+        <field name="model">formation.salle</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">mf_test.template_formation_salle</field>
+        <field name="report_file">mf_test.template_formation_salle</field>
+        <field name="binding_model_id" ref="model_formation_salle"/>
+    </record>
+
+        <template id="template_formation_salle">
+            <t t-foreach="docs" t-as="o">
+                    <t t-call="web.html_container">
+                        <t t-call="web.basic_layout">
+                    <div class="page">
+
+                        La Salle de formation  :
+                        <b><t t-esc="o.name"/></b> <br/>
+                        Les immobilisations  : <br/>
+                                <t t-foreach="o.immo_ids" t-as="immo">
+                                      <t t-esc="immo.product_id.name"/> avec le prix <t t-esc="immo.valeur"/>  <br/>
+                                </t>
+                    </div>
+                </t>
+                </t>
+            </t>
+        </template>
+</odoo>

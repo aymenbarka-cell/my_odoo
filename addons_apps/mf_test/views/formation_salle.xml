@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+<!--        vue formulaire de la table des salles-->
+        <record id="view_form_formation_salle" model="ir.ui.view">
+            <field name="name">formation.salle  form</field>
+            <field name="model">formation.salle</field>
+            <field name="arch" type="xml">
+                <form >
+                    <header>
+                    <field name="status" widget="statusbar" statusbar_visible="libre,en_cours,maintenance"/>
+                </header>
+                    <sheet>
+                        <group>
+                            <group string ="Information global">
+                                <field name="name"/>
+                                <field name="ref"/>
+                                <field name="status"/>
+                                <field name="type_ids" widget="many2many_tags"/>
+                            </group>
+                            <group string ="autres">
+                                <field name="nb_place"/>
+                                <field name="date_creation"/>
+                                <field name="if_machine"/>
+                                <field name="type_class"/>
+                            </group>
+                        </group>
+                        <group>
+                                <field name="immo_ids">
+                                    <list editable="bottom">
+                                        <field name="currency_id" column_invisible="True"/>
+                                        <field name="product_id"/>
+                                        <field name="valeur"/>
+                                        <field name="remarque"/>
+                                    </list>
+                                </field>
+                            </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+<!--        vue list pour la table salle -->
+        <record id="view_formation_salle_tree" model="ir.ui.view">
+            <field name="name">formation   salle la .list</field>
+            <field name="model">formation.salle</field>
+            <field name="arch" type="xml">
+                <list string="formation salle" >
+                    <field name="ref"/>
+                    <field name="name"/>
+                </list>
+            </field>
+        </record>
+    </data>
+
+<!--action d'ouverture de fenetre de la table salle -->
+    <record model='ir.actions.act_window' id='formation_salle_action'>
+        <field name="name">Formation salle</field>
+        <field name="res_model">formation.salle</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+<!--    menu principal (racine) pour les menu formation-->
+    <menuitem
+            id="formation_menu"
+            name="formation menu principal"
+            sequence="20" />
+
+<!--    menu  de la table salle-->
+	<menuitem
+            id="formation_salle_menu"
+            parent="formation_menu"
+            action="formation_salle_action"
+            sequence="1" />
+
+</odoo>

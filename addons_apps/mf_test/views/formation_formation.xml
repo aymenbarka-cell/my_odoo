@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+<!--        vue form pour la table formation-->
+        <record id="view_form_formation_formation" model="ir.ui.view">
+            <field name="name">formation.formation   form</field>
+            <field name="model">formation.formation</field>
+            <field name="arch" type="xml">
+                <form >
+                    <header>
+                        <button string="Valider"  class="btn"
+                                invisible="status in ['in','closed'] "
+                                groups="mf_test.formation_g2"
+                                type="object"      name="validation"/>
+                    <field name="status" widget="statusbar" statusbar_visible="new,in,closed"/>
+                </header>
+                    <sheet>
+                        <group>
+                            <group string ="Information global">
+                                <field name="name" readonly="status != 'new'"/>
+                                <field name="code"/>
+                                <field name="salle_id" readonly="status != 'new'" options="{'no_create': True}"/>
+                                <field name="type_id" readonly="status != 'new'" options="{'no_create': True}"/>
+                                <field name="description_f" readonly="status != 'new'" />
+                                <field name="formateur_id"  readonly="status != 'new'" options="{'no_create': True}"/>
+
+                            </group>
+                            <group >
+                                <field name="date_deb" readonly="status != 'new'"/>
+                                <field name="date_fin" readonly="status != 'new'"/>
+                                <field name="currency_id" invisible="True"/>
+                                <field name="cost" readonly="status != 'new'"/>
+                            </group>
+
+
+                                       <button class="oe_stat_button" type="object"
+                   name="charger"  string="charger" icon="fa-list-ul" />
+
+                            <notebook>
+                                <page string="Les participants" >
+                                     <field name="employee_ids">
+                                            <list editable="bottom">
+                                                <field name="employee_id" />
+                                                <field name="note"/>
+                                                <field name="currency_id" invisible="1"/>
+                                                <field name="cost_line"/>
+                                            </list>
+                                        </field>
+                                </page>
+                                <page string="Remarque"
+                                      groups="mf_test.formation_g2">
+                                    <field name="remarque"/>
+                                </page>
+                            </notebook>
+                        </group>
+                    </sheet>
+                    <chatter reload_on_post="True"/>
+                </form>
+            </field>
+        </record>
+
+<!--        vue list pour la table formation-->
+        <record id="view_formation_formation_tree" model="ir.ui.view">
+            <field name="name">formation   formation la .list</field>
+            <field name="model">formation.formation</field>
+            <field name="arch" type="xml">
+                <list string="formation salle" >
+                    <field name="name"/>
+                    <field name="salle_id"/>
+                                <field name="note_g"  />
+                </list>
+            </field>
+        </record>
+
+<!--action d'ouverture de fenetre pour la table formation-->
+    <record model='ir.actions.act_window' id='formation_formation_action'>
+        <field name="name">Formation </field>
+        <field name="res_model">formation.formation</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+<!--menu formation -->
+	<menuitem
+            id="formation_formation_menu"
+            parent="formation_menu"
+            action="formation_formation_action"
+            sequence="20" />
+
+
+
+
+        <record id="view_formation_formation_line_tree" model="ir.ui.view">
+            <field name="name">formation   formation line la .list</field>
+            <field name="model">formation.formation.line</field>
+            <field name="arch" type="xml">
+                <list string="Formation" create="false" >
+                    <field name="employee_id"/>
+                    <field name="formation_id"/>
+                    <field name="note"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_formation_formation_line_pivot"
+                model="ir.ui.view">
+            <field name="name">formation   formation line la .pivot</field>
+            <field name="model">formation.formation.line</field>
+            <field name="arch" type="xml">
+                <pivot  >
+                    <field name="employee_id"/>
+                    <field name="formation_id"/>
+                    <field name="note"/>
+                </pivot>
+            </field>
+        </record>
+
+                <record id="view_formation_formation_line_graph"
+                model="ir.ui.view">
+            <field name="name">formation   formation line la .graph</field>
+            <field name="model">formation.formation.line</field>
+            <field name="arch" type="xml">
+                <graph  >
+                    <field name="employee_id"/>
+                    <field name="formation_id"/>
+                    <field name="note"/>
+                </graph>
+            </field>
+        </record>
+       <record model='ir.actions.act_window' id='formation_formation_line_action'>
+        <field name="name">Analyse </field>
+        <field name="res_model">formation.formation.line</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">list,pivot,graph</field>
+    </record>
+
+   	<menuitem
+            id="formation_formation_line_menu"
+            parent="formation_menu"
+            action="formation_formation_line_action"
+            sequence="25" />
+
+    </data>
+
+</odoo>

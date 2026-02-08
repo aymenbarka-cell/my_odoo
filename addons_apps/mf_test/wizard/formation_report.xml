@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+  <record id="view_formation_report_form" model="ir.ui.view">
+    <field name="name">formation_report .form</field>
+    <field name="model">formation.report</field>
+    <field name="arch" type="xml">
+      <form>
+          <group>
+              <group string="Periode">
+                <field name="date_from"/>
+                <field name="date_to"/>
+              </group>
+              <group>
+                <field name="department_id"/>
+              </group>
+            <group>
+                <field name="file_name" invisible="True"/>
+                <field name="file_data" filename="file_name"/>
+              </group>
+
+        </group>
+        <footer>
+                    <button string="Générer" class="oe_highlight" type="object" name="generate_txt"/>
+                    <button string="Générer PDF" class="oe_highlight" type="object" name="generate_pdf"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_formation_report_wizard" model="ir.actions.act_window">
+    <field name="name">formation report</field>
+    <field name="res_model">formation.report</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+  </record>
+
+      <menuitem
+            id="formation_report_menu"
+            parent="formation_menu"
+            action="action_formation_report_wizard"
+            sequence="40" />
+
+    </data>
+
+</odoo>

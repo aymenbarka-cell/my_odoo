@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+        <menuitem id="menu_courrier_root" name="Courrier Management" sequence="10"/>
+
+        <menuitem id="menu_courrier_main" name="Courriers"
+                  parent="menu_courrier_root"
+                  action="action_courrier"
+                  sequence="10"
+                  groups="gestion_de_courier.group_courrier_user,gestion_de_courier.group_courrier_admin"/>
+
+        <menuitem id="menu_courrier_archive_root" name="Archives"
+                  parent="menu_courrier_root" sequence="20"/>
+
+        <menuitem id="menu_courrier_archive" name="Archived Courriers"
+                  parent="menu_courrier_archive_root"
+                  action="action_courrier_archive"
+                  sequence="10"
+                  groups="gestion_de_courier.group_courrier_user,gestion_de_courier.group_courrier_admin"/>
+
+        <!-- Admin-only configuration -->
+        <menuitem id="menu_courrier_config" name="Configuration"
+                  parent="menu_courrier_root" sequence="90"
+                  groups="gestion_de_courier.group_courrier_admin"/>
+
+        <menuitem id="menu_courrier_sequences" name="Numérotation"
+                  parent="menu_courrier_config"
+                  action="action_courrier_sequences"
+                  sequence="10"
+                  groups="gestion_de_courier.group_courrier_admin"/>
+    </data>
+</odoo>

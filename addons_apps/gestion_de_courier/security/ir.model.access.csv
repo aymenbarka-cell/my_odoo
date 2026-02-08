@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_courrier_courrier,courrier.courrier,model_courrier_courrier,,1,1,1,0
+access_courrier_desk,courrier.desk,model_courrier_desk,,1,1,1,0
+access_courrier_archive,courrier.archive,model_courrier_archive,,1,1,1,0

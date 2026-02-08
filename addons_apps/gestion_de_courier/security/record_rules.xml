@@ -1,0 +1,27 @@
+<odoo>
+    <data noupdate="1">
+        <record id="seq_courrier_incoming" model="ir.sequence">
+            <field name="name">Incoming Courrier</field>
+            <field name="code">courrier.incoming</field>
+            <field name="prefix">INC/%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_courrier_outgoing" model="ir.sequence">
+            <field name="name">Outgoing Courrier</field>
+            <field name="code">courrier.outgoing</field>
+            <field name="prefix">OUT/%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_courrier_internal" model="ir.sequence">
+            <field name="name">Internal Courrier</field>
+            <field name="code">courrier.internal</field>
+            <field name="prefix">INT/%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

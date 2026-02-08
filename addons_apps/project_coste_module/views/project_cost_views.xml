@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ACTIONS (must be defined before menuitems that reference them) -->
+    <record id="action_project_cost_estimate" model="ir.actions.act_window">
+        <field name="name">Project Cost Estimates</field>
+        <field name="res_model">project.cost.estimate</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_project_product_list" model="ir.actions.act_window">
+        <field name="name">Product Lists</field>
+        <field name="res_model">project.product.list</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- MENUS -->
+    <menuitem id="menu_project_cost_root"
+              name="Project Costing"
+              parent="project.menu_main_pm"
+              sequence="50"/>
+
+    <menuitem id="menu_project_cost_estimate"
+              name="Calculate Estimated Cost"
+              parent="menu_project_cost_root"
+              action="action_project_cost_estimate"/>
+
+    <menuitem id="menu_project_product_list"
+              name="Product Lists"
+              parent="menu_project_cost_root"
+              action="action_project_product_list"/>
+
+    <!-- ESTIMATE LIST -->
+    <record id="view_project_cost_estimate_list" model="ir.ui.view">
+        <field name="name">project.cost.estimate.list</field>
+        <field name="model">project.cost.estimate</field>
+        <field name="arch" type="xml">
+            <list string="Project Cost Estimates">
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="total_cost"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ESTIMATE FORM -->
+    <record id="view_project_cost_estimate_form" model="ir.ui.view">
+        <field name="name">project.cost.estimate.form</field>
+        <field name="model">project.cost.estimate</field>
+        <field name="arch" type="xml">
+            <form string="Project Cost Estimate">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="project_id"/>
+                        <!-- choose template/catalog (appends products when chosen) -->
+                        <field name="product_list_id"/>
+                        <field name="total_cost" readonly="1"/>
+                    </group>
+
+                    <separator string="Estimate Lines"/>
+                    <field name="line_ids">
+                        <list editable="bottom">
+                            <field name="product_id"/>
+                            <field name="quantity"/>
+                            <field name="cost_price"/>
+                            <field name="subtotal" readonly="1"/>
+                        </list>
+                    </field>
+
+                    <footer>
+                        <button name="action_open_add_from_template" type="object" string="Add from Product List" class="btn-secondary"/>
+                        <button name="action_open_product_catalog" type="object" string="Open Product Catalog" class="btn-secondary"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- PRODUCT LIST (catalog) views -->
+    <record id="view_project_product_list_list" model="ir.ui.view">
+        <field name="name">project.product.list.list</field>
+        <field name="model">project.product.list</field>
+        <field name="arch" type="xml">
+            <list string="Product Lists">
+                <field name="name"/>
+                <field name="product_ids" widget="many2many_tags"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_project_product_list_form" model="ir.ui.view">
+        <field name="name">project.product.list.form</field>
+        <field name="model">project.product.list</field>
+        <field name="arch" type="xml">
+            <form string="Product List">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <separator string="Products"/>
+                    <field name="product_ids">
+                        <list>
+                            <field name="name"/>
+                            <field name="default_code"/>
+                            <field name="standard_price"/>
+                            <field name="list_price"/>
+                        </list>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- WIZARD: select products from catalog (modal) -->
+    <record id="view_project_select_products_wizard_form" model="ir.ui.view">
+        <field name="name">project.select.products.wizard.form</field>
+        <field name="model">project.select.products.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Select Products to Add">
+                <sheet>
+                    <group>
+                        <field name="estimate_id" invisible="1"/>
+                        <field name="product_ids" widget="many2many_tags"/>
+                    </group>
+                    <footer>
+                        <button string="Add Selected" type="object" name="action_add_selected" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- WIZARD: add from template -->
+    <record id="view_project_add_products_wizard_form" model="ir.ui.view">
+        <field name="name">project.add.products.wizard.form</field>
+        <field name="model">project.add.products.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Add from Product List">
+                <sheet>
+                    <group>
+                        <field name="estimate_id" invisible="1"/>
+                        <field name="product_list_id"/>
+                    </group>
+                    <footer>
+                        <button string="Add Lines" type="object" name="action_add_from_template" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- QUICK ACCESS LINES LIST (optional) -->
+    <record id="view_project_cost_estimate_line_list" model="ir.ui.view">
+        <field name="name">project.cost.estimate.line.list</field>
+        <field name="model">project.cost.estimate.line</field>
+        <field name="arch" type="xml">
+            <list string="Estimate Lines">
+                <field name="product_id"/>
+                <field name="quantity"/>
+                <field name="cost_price"/>
+                <field name="subtotal"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Add "View Cost Estimates" button to Project form (uses safe inherit project.edit_project) -->
+    <record id="view_project_form_inherit_cost_button" model="ir.ui.view">
+        <field name="name">project.project.form.inherit.cost.button</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <header position="inside">
+                <button name="action_view_project_cost_estimates"
+                        type="object"
+                        string="View Cost Estimates"
+                        class="oe_highlight"/>
+            </header>
+        </field>
+    </record>
+</odoo>

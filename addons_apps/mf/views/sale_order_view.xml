@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_devis_form" model="ir.ui.view">
+            <field name="name">sale order MF</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="remarque"/>
+                    <field name="client_f"/>
+                </xpath>
+            </field>
+        </record>
+
+</odoo>

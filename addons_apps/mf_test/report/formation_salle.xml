@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="report_formation_salle" model="ir.actions.report">
+        <field name="name">Fiche de salle</field>
+        <field name="model">salle.formation</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">mf_test.template_formation_salle</field>
+        <field name="report_file">mf_test.template_formation_salle</field>
+        <field name="binding_model_id" ref="model_salle_formation"/>
+    </record>
+    <template id="template_formation_salle">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="web.html_container">
+                <t t-call="web.basic_layout">
+                    <div class="page">
+                        <h2>Salle de formation :
+                            <t t-esc="o.name"/>
+                        </h2>
+                        <hr/>
+
+                        <p>
+                            <strong>Référence :</strong>
+                            <t t-esc="o.ref"/>
+                        </p>
+                        <p>
+                            <strong>Nom de la salle :</strong>
+                            <t t-esc="o.name"/>
+                        </p>
+                        <p>
+                            <strong>Nombre de places :</strong>
+                            <t t-esc="o.nb_place"/>
+                        </p>
+                        <p>
+                            <strong>Date de création :</strong>
+                            <t t-esc="o.created_date"/>
+                        </p>
+                        <p>
+                            <strong>Machine exist :</strong>
+                            <t t-esc="o.if_machine"/>
+                        </p>
+                        <p>
+                            <strong>Étage :</strong>
+                            <t t-esc="o.type_class"/>
+                        </p>
+                        <p>
+                            <strong>Status :</strong>
+                            <t t-if="o.status == 'en_cours'">
+                                <h1>En cours de formation</h1>
+                            </t>
+                        </p>
+                        <p>
+                            <strong>Devise :</strong>
+                            <t t-esc="o.currency_id.symbol"/>
+                        </p>
+                        <p>
+                            <strong>Valeur totale :</strong>
+                            <t t-esc="o.total_valeurs"/>
+                            <t t-esc="o.currency_id.symbol"/>
+                        </p>
+
+                        <h3>Formations autorisées</h3>
+                        <ul>
+                            <t t-foreach="o.type_formation" t-as="f">
+                                <li>
+                                    <t t-esc="f.name"/>
+                                </li>
+                            </t>
+                        </ul>
+
+                        <h3>Immobilier de la salle</h3>
+                        <table class="table table-sm table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Valeur</th>
+                                    <th>Remarque</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o.immob_ids" t-as="im">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="im.valeur"/>
+                                            <t t-esc="o.currency_id.symbol"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="im.remarque"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

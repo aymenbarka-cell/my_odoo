@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree/List View -->
+    <record id="view_formation_line_list" model="ir.ui.view">
+        <field name="name">formation.formation.line.list</field>
+        <field name="model">formation.formation.line</field>
+        <field name="arch" type="xml">
+            <list string="Participants de la formation" create="false">
+                <field name="employee_id"/>
+                <field name="note"/>
+                <field name="formation_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_formation_line_pivot" model="ir.ui.view">
+        <field name="name">formation.formation.line.list</field>
+        <field name="model">formation.formation.line</field>
+        <field name="arch" type="xml">
+            <pivot string="Participants de la formation" >
+                <field name="employee_id"/>
+                <field name="note"/>
+                <field name="formation_id"/>
+            </pivot>
+        </field>
+    </record>
+
+
+    <record id="view_formation_line_graph" model="ir.ui.view">
+        <field name="name">formation.formation.line.list</field>
+        <field name="model">formation.formation.line</field>
+        <field name="arch" type="xml">
+            <graph string="Participants de la formation" >
+                <field name="employee_id"/>
+                <field name="note"/>
+                <field name="formation_id"/>
+            </graph>
+        </field>
+    </record>
+
+
+
+    <!-- Action -->
+    <record id="action_formation_line" model="ir.actions.act_window">
+        <field name="name">Les Participants</field>
+        <field name="res_model">formation.formation.line</field>
+        <field name="view_mode">list,pivot,graph</field>
+    </record>
+
+    <!-- Optional Menu -->
+    <menuitem id="menu_formation_line_root"
+              name="Participants"
+              parent="formation_menu"
+              action="action_formation_line"
+              />
+</odoo>

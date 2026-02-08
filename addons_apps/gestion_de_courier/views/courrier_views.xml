@@ -1,0 +1,73 @@
+<odoo>
+  <data>
+    <record id="view_courrier_list" model="ir.ui.view">
+      <field name="name">courrier.courrier.list</field>
+      <field name="model">courrier.courrier</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="reference"/>
+          <field name="name"/>
+          <field name="type"/>
+          <field name="priority"/>
+          <field name="assigned_department_id"/>
+          <field name="assigned_desk_id"/>
+          <field name="state"/>
+        </list>
+      </field>
+    </record>
+
+    <record id="view_courrier_form" model="ir.ui.view">
+      <field name="name">courrier.courrier.form</field>
+      <field name="model">courrier.courrier</field>
+      <field name="arch" type="xml">
+        <form string="Courrier">
+          <sheet>
+            <group>
+              <field name="reference" readonly="1"/>
+              <field name="name"/>
+              <field name="type"/>
+              <field name="priority"/>
+              <field name="flux"/>
+              <field name="assigned_department_id"/>
+              <field name="assigned_desk_id"/>
+              <field name="action"/>
+              <field name="parent_id"/>
+              <field name="child_ids"/>
+              <field name="attachment_ids" widget="many2many_binary"/>
+              <field name="state"/>
+              <field name="out_side_dispatching"/>
+            </group>
+            <footer>
+              <button name="action_assign" type="object" string="Assign" class="btn-primary"/>
+              <button name="action_in_progress" type="object" string="In Progress" class="btn-secondary"/>
+              <button name="action_done" type="object" string="Done" class="btn-success"/>
+              <button name="action_archive" type="object" string="Archive" class="btn-danger"/>
+            </footer>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="action_courrier" model="ir.actions.act_window">
+      <field name="name">Courriers</field>
+      <field name="res_model">courrier.courrier</field>
+      <field name="view_mode">list,form</field>
+    </record>
+
+     <!-- Archived Courriers -->
+    <record id="action_courrier_archive" model="ir.actions.act_window">
+        <field name="name">Archived Courriers</field>
+        <field name="res_model">courrier.courrier</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('state', '=', 'archived')]</field>
+    </record>
+
+    <!-- Sequences configuration -->
+    <record id="action_courrier_sequences" model="ir.actions.act_window">
+        <field name="name">Numérotation des Courriers</field>
+        <field name="res_model">ir.sequence</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('code', '=', 'courrier.courrier')]</field>
+    </record>
+  </data>
+</odoo>

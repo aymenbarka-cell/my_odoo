@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+            <!-- Definit la categorie-->
+            <record   id='formation_catef'
+                          model='ir.module.category' >
+                <field name="name"> Formation</field>
+            </record>
+
+            <record   id='formation_g1'
+                      model='res.groups' >
+                <field name="name">Utilisateur</field>
+                <field name="category_id" ref="mf.formation_catef"/>
+            </record>
+
+            <record   id='formation_g2'
+                      model='res.groups' >
+                <field name="name">Responsable</field>
+                <field name="category_id" ref="mf.formation_catef"/>
+                <field name="implied_ids" eval="[(4, ref('mf.formation_g1'))]"/>
+            </record>
+
+            <record   id='formation_g3'
+                      model='res.groups' >
+                <field name="name">Consultation</field>
+                <field name="category_id" ref="mf.formation_catef"/>
+            </record>
+
+            <record   id='formation_user_rule'
+                      model='ir.rule' >
+                <field name="name">Formation par utilisateur</field>
+                <field name="model_id" ref="model_formation_formation"/>
+                <field name="domain_force">[('create_uid','=', user.id)]</field>
+                <field name="global">False</field>
+                <field name="groups" eval="[(4, ref('mf.formation_g1'))]"></field>
+
+            </record>
+<!--                Pour qu'un admin peut voir tous les formation même ceux qu'il n'a pas créer -->
+            <record   id='formation_user_rule'
+                      model='ir.rule' >
+                <field name="name">Formation pour Responsable</field>
+                <field name="model_id" ref="model_formation_formation"/>
+                <field name="domain_force">[(1,'=',1)]</field>
+
+                <field name="global">False</field>
+                <field name="groups" eval="[(4, ref('mf.formation_g2'))]"></field>
+            </record>
+
+    </data>
+
+</odoo>

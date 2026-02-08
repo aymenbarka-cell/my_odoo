@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_document_direction,Access Direction,model_document_direction,base.group_user,1,1,1,1
+access_document_department,Access Department,model_document_department,base.group_user,1,1,1,1
+access_document_section,Access Section,model_document_section,base.group_user,1,1,1,1
+access_document_desk,Access Desk,model_document_desk,base.group_user,1,1,1,1
+access_document_archive,Access Document Archive,model_document_archive,base.group_user,1,1,1,1
+access_document_category,Access Document Category,model_document_category,base.group_user,1,1,1,1
+access_document_tag,Access Document Tag,model_document_tag,base.group_user,1,1,1,1
+access_document_user_access,Access Document User Access,model_document_user_access,base.group_system,1,1,1,1
+access_document_user_access_read,Access Document User Access Read,model_document_user_access,base.group_user,1,0,0,0
+access_res_users_allowed,Access Res Users Allowed,model_res_users,base.group_user,1,0,0,0

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--Affiche la liste des enregistrements-->
+        <record id="view_formation_report" model="ir.ui.view">
+            <field name="name">formation.report MF</field>
+            <field name="model">formation.report</field>
+            <field name="arch" type="xml">
+                  <form string="Tags">
+                    <sheet>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </sheet>
+                  </form>
+            </field>
+        </record>
+        <record id="formation_report_action" model="ir.actions.act_window">
+            <field name="name">formation report</field>
+            <field name="res_model">formation.report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">form,list</field>
+
+        </record>
+
+        <menuitem
+            id="formation_formation_report_menu"
+            parent="formation_menu"
+            action="formation_report_action"
+            name="Formation Report"
+            sequence="30"/>
+
+    </data>
+</odoo>

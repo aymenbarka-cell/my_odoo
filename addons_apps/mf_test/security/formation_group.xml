@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record   id='formation_catef'
+                      model='ir.module.category' >
+            <field name="name"> Formation</field>
+        </record>
+            <record   id='formation_g1'
+                      model='res.groups' >
+                <field name="name"> Utilisateur</field>
+                <field name="category_id" ref="mf_test.formation_catef"/>
+            </record>
+            <record   id='formation_g2'
+                      model='res.groups' >
+                <field name="name">Responsable</field>
+                <field name="category_id" ref="mf_test.formation_catef"/>
+                <field name="implied_ids" eval="[(4, ref('mf_test.formation_g1'))]"/>
+            </record>
+            <record   id='formation_g3'
+                      model='res.groups' >
+                <field name="name">Consultation</field>
+                <field name="category_id" ref="mf_test.formation_catef"/>
+            </record>
+
+        <record model="ir.rule" id="formation_user_rule">
+            <field name="name">Formation par utilisateur</field>
+            <field name="model_id" ref="model_formation_formation"/>
+            <field name="domain_force">[('create_uid','=', user.id)]</field>
+            <field name="global">False</field>
+            <field name="groups" eval="[(4, ref('mf_test.formation_g1'))]"/>
+        </record>
+                <record model="ir.rule" id="formation_admin_rule">
+            <field name="name">Formation pour responsable</field>
+            <field name="model_id" ref="model_formation_formation"/>
+            <field name="domain_force">[(1,'=', 1)]</field>
+            <field name="global">False</field>
+            <field name="groups" eval="[(4, ref('mf_test.formation_g2'))]"/>
+        </record>
+
+
+    </data>
+
+</odoo>

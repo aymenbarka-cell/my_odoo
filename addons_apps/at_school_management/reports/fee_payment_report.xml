@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- List View -->
+    <record id="view_school_fee_payment_list" model="ir.ui.view">
+        <field name="name">school.fee.payment.list</field>
+        <field name="model">school.fee.payment</field>
+        <field name="arch" type="xml">
+            <list string="Fee Payments">
+                <field name="admission_no"/>
+                <field name="academic_year"/>
+                <field name="fee_type"/>
+                <field name="amount_paid"/>
+                <field name="total_amount"/>
+                <field name="balance_amount"/>
+                <field name="payment_date"/>
+                <field name="payment_mode"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View with Print Receipt Button -->
+    <record id="view_school_fee_payment_form" model="ir.ui.view">
+        <field name="name">school.fee.payment.form</field>
+        <field name="model">school.fee.payment</field>
+        <field name="arch" type="xml">
+            <form string="Fee Payment">
+                <header>
+                    <button name="%(action_report_fee_payment_receipt)d"
+                            string="Print Receipt"
+                            type="action"
+                            class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="admission_no"/>
+                        <field name="academic_year"/>
+                        <field name="fee_type"/>
+                        <field name="amount_paid"/>
+                        <field name="total_amount" readonly="1"/>
+                        <field name="balance_amount" readonly="1"/>
+                        <field name="payment_date"/>
+                        <field name="payment_mode"/>
+                        <field name="note"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Report Template for PDF Receipt -->
+    <template id="report_fee_payment_receipt">
+        <t t-call="web.basic_layout">
+            <t t-set="doc" t-value="doc"/>
+            <div class="page">
+                <h2 style="text-align:center;">Payment Receipt</h2>
+                <p><strong>Student:</strong> <t t-esc="doc.admission_no.name"/></p>
+                <p><strong>Class:</strong> <t t-esc="doc.admission_no.class_id.name"/></p>
+                <p><strong>Fee Type:</strong> <t t-esc="doc.fee_type"/></p>
+                <p><strong>Amount Paid:</strong> <t t-esc="doc.amount_paid"/> </p>
+                <p><strong>Payment Date:</strong> <t t-esc="doc.payment_date"/></p>
+                <p><strong>Balance:</strong> <t t-esc="doc.balance_amount"/></p>
+                <p><strong>Note:</strong> <t t-esc="doc.note"/></p>
+                <p style="text-align:right;">Thank you for your payment!</p>
+            </div>
+        </t>
+    </template>
+
+    <!-- Report Action -->
+    <record id="action_report_fee_payment_receipt" model="ir.actions.report">
+        <field name="name">Fee Payment Receipt</field>
+        <field name="model">school.fee.payment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">school.report_fee_payment_receipt</field>
+        <field name="print_report_name">'Receipt - %s' % (object.admission_no.name)</field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_school_fee_payment" model="ir.actions.act_window">
+        <field name="name">Fee Payments</field>
+        <field name="res_model">school.fee.payment</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Register a fee payment record
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Items -->
+ 
+    <menuitem id="menu_school_fee_payment" name="Fee Payments" parent="menu_school_fee_payment_root" sequence="30"
+              action="action_school_fee_payment"/>
+</odoo>

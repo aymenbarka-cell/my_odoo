@@ -1,0 +1,510 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mf
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20251020\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-04 13:49+0000\n"
+"PO-Revision-Date: 2025-11-04 13:49+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mf
+#: model:ir.module.category,name:mf.formation_catef
+msgid " Formation"
+msgstr "التكوين"
+
+#. module: mf
+#: model:ir.model.fields.selection,name:mf.selection__formation_salle__type_class__1
+msgid "1er etage"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields.selection,name:mf.selection__formation_salle__type_class__2
+msgid "2ene etage"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields.selection,name:mf.selection__formation_salle__type_class__3
+msgid "3eme etage"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields.selection,name:mf.selection__formation_salle__type_class__4
+msgid "4eme etage"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields.selection,name:mf.selection__formation_salle__type_class__5
+msgid "5eme etage"
+msgstr ""
+
+#. module: mf
+#: model_terms:ir.ui.view,arch_db:mf.view_hr_employee_form
+msgid "<span class=\"o_stat_text\">FORMATION</span>"
+msgstr ""
+
+#. module: mf
+#: model_terms:ir.ui.view,arch_db:mf.view_form_formation_form
+msgid "Affecter DZ"
+msgstr ""
+
+#. module: mf
+#: model:ir.actions.act_window,name:mf.formation_formation_line_action
+#: model:ir.ui.menu,name:mf.formation_formation_line_menu
+msgid "Analyse"
+msgstr ""
+
+#. module: mf
+#: model_terms:ir.ui.view,arch_db:mf.view_formation_formation_form
+msgid "Charger"
+msgstr ""
+
+#. module: mf
+#: model_terms:ir.ui.view,arch_db:mf.view_formation_formation_form
+msgid "Cloturer"
+msgstr "غلق"
+
+#. module: mf
+#: model:ir.model.fields.selection,name:mf.selection__formation_formation__status__closed
+msgid "Clôturé"
+msgstr ""
+
+#. module: mf
+#: model:res.groups,name:mf.formation_g3
+msgid "Consultation"
+msgstr ""
+
+#. module: mf
+#: model:ir.model,name:mf.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_salle__if_machine
+msgid "Contient des machine"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_formation__create_uid
+#: model:ir.model.fields,field_description:mf.field_formation_formation_line__create_uid
+#: model:ir.model.fields,field_description:mf.field_formation_salle__create_uid
+#: model:ir.model.fields,field_description:mf.field_formation_salle_immo__create_uid
+#: model:ir.model.fields,field_description:mf.field_formation_type__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_formation__create_date
+#: model:ir.model.fields,field_description:mf.field_formation_formation_line__create_date
+#: model:ir.model.fields,field_description:mf.field_formation_salle__create_date
+#: model:ir.model.fields,field_description:mf.field_formation_salle_immo__create_date
+#: model:ir.model.fields,field_description:mf.field_formation_type__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_salle__currency_id
+#: model:ir.model.fields,field_description:mf.field_formation_salle_immo__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_formation__display_name
+#: model:ir.model.fields,field_description:mf.field_formation_formation_line__display_name
+#: model:ir.model.fields,field_description:mf.field_formation_salle__display_name
+#: model:ir.model.fields,field_description:mf.field_formation_salle_immo__display_name
+#: model:ir.model.fields,field_description:mf.field_formation_type__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: mf
+#: model_terms:ir.ui.view,arch_db:mf.view_form_formation_form
+msgid "Dupliquer"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_type__description
+msgid "Déscription de type"
+msgstr ""
+
+#. module: mf
+#: model:ir.model,name:mf.model_hr_employee
+msgid "Employee"
+msgstr "مستخدم"
+
+#. module: mf
+#: model:ir.model.fields.selection,name:mf.selection__formation_formation__status__in
+msgid "En cours"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields.selection,name:mf.selection__formation_salle__status__en_cours
+msgid "En cours de formation"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields.selection,name:mf.selection__formation_salle__status__maintenance
+msgid "En maintenance"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_salle__type_class
+msgid "Etage"
+msgstr "طابق"
+
+#. module: mf
+#: model:ir.actions.report,name:mf.report_formation_salle
+msgid "Fiche de salle"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_formation__date_fin
+msgid "Fin de la formation"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_res_partner__formateur
+#: model:ir.model.fields,field_description:mf.field_res_users__formateur
+msgid "Formateur ?"
+msgstr "مكون "
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_formation__code
+msgid "Formation Code"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_formation__formation_ligne_ids
+msgid "Formation Ligne"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_formation__id
+#: model:ir.model.fields,field_description:mf.field_formation_formation_line__id
+#: model:ir.model.fields,field_description:mf.field_formation_salle__id
+#: model:ir.model.fields,field_description:mf.field_formation_salle_immo__id
+#: model:ir.model.fields,field_description:mf.field_formation_type__id
+msgid "ID"
+msgstr ""
+
+#. module: mf
+#: model_terms:ir.ui.view,arch_db:mf.view_formation_formation_form
+msgid "Imprimer rapport"
+msgstr ""
+
+#. module: mf
+#: model_terms:ir.ui.view,arch_db:mf.view_form_formation_salle
+#: model_terms:ir.ui.view,arch_db:mf.view_form_formation_type
+#: model_terms:ir.ui.view,arch_db:mf.view_formation_formation_form
+msgid "Information globale"
+msgstr ""
+
+#. module: mf
+#: model_terms:ir.ui.view,arch_db:mf.template_formation_salle
+msgid "La salle de formation :"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_formation__write_uid
+#: model:ir.model.fields,field_description:mf.field_formation_formation_line__write_uid
+#: model:ir.model.fields,field_description:mf.field_formation_salle__write_uid
+#: model:ir.model.fields,field_description:mf.field_formation_salle_immo__write_uid
+#: model:ir.model.fields,field_description:mf.field_formation_type__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_formation__write_date
+#: model:ir.model.fields,field_description:mf.field_formation_formation_line__write_date
+#: model:ir.model.fields,field_description:mf.field_formation_salle__write_date
+#: model:ir.model.fields,field_description:mf.field_formation_salle_immo__write_date
+#: model:ir.model.fields,field_description:mf.field_formation_type__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: mf
+#: model:ir.model,name:mf.model_formation_formation
+msgid "Les formations"
+msgstr ""
+
+#. module: mf
+#: model_terms:ir.ui.view,arch_db:mf.view_formation_formation_form
+msgid "Les participants"
+msgstr ""
+
+#. module: mf
+#: model:ir.model,name:mf.model_formation_formation_line
+msgid "Les participants de la formation"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_salle__type_ids
+msgid "Les types autorisés"
+msgstr ""
+
+#. module: mf
+#: model_terms:ir.ui.view,arch_db:mf.view_form_formation_salle
+msgid "Liberer"
+msgstr ""
+
+#. module: mf
+#: model_terms:ir.ui.view,arch_db:mf.view_form_formation_salle
+msgid "Maintenance"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_formation__note_g
+#: model:ir.model.fields,field_description:mf.field_hr_employee__moyenne
+msgid "Moyenne"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_formation__name
+msgid "Nom de la formation"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_salle__name
+msgid "Nom de la salle"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_type__name
+msgid "Nom de type"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_hr_employee__nbf
+msgid "Nombre de formations"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_salle__nb_place
+msgid "Nombre de places dans la salle"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_formation_line__note
+msgid "Note"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_stock_picking__client_f
+msgid "Partenaire"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_sale_order__client_f
+msgid "Partner"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_formation__remarque
+#: model:ir.model.fields,field_description:mf.field_formation_salle_immo__remarque
+#: model:ir.model.fields,field_description:mf.field_sale_order__remarque
+#: model:ir.model.fields,field_description:mf.field_stock_picking__remarque
+#: model_terms:ir.ui.view,arch_db:mf.view_formation_formation_form
+msgid "Remarque"
+msgstr ""
+
+#. module: mf
+#: model:res.groups,name:mf.formation_g2
+msgid "Responsable"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_salle__ref
+msgid "Référence de la salle"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_type__ref
+msgid "Référence de type"
+msgstr ""
+
+#. module: mf
+#: model:ir.model,name:mf.model_sale_order
+msgid "Sales Order"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_salle_immo__salle_id
+msgid "Salle"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_salle__salle_immo_ids
+msgid "Salle Immo"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_salle__somme
+msgid "Somme"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_formation__status
+#: model:ir.model.fields,help:mf.field_formation_salle__status
+msgid "Status"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_salle__status
+msgid "Statut"
+msgstr ""
+
+#. module: mf
+#: model_terms:ir.ui.view,arch_db:mf.view_form_formation_salle
+#: model_terms:ir.ui.view,arch_db:mf.view_form_formation_type
+#: model_terms:ir.ui.view,arch_db:mf.view_formation_formation_form
+msgid "Tags"
+msgstr ""
+
+#. module: mf
+#: model:ir.model,name:mf.model_stock_picking
+msgid "Transfer"
+msgstr ""
+
+#. module: mf
+#: model:res.groups,name:mf.formation_g1
+msgid "Utilisateur"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_salle_immo__valeur_p
+msgid "Valeur"
+msgstr ""
+
+#. module: mf
+#: model_terms:ir.ui.view,arch_db:mf.view_formation_formation_form
+msgid "Valider"
+msgstr ""
+
+#. module: mf
+#: model_terms:ir.ui.view,arch_db:mf.view_form_formation_salle
+msgid "autre"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_type__date_creation
+msgid "date "
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_salle__date_creation
+msgid "date d'inoguration"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_formation__date_debut
+msgid "début de la formation"
+msgstr ""
+
+#. module: mf
+#: model:ir.actions.act_window,name:mf.formation_action_salle
+#: model:ir.ui.menu,name:mf.formation_formation_menu
+#: model_terms:ir.ui.view,arch_db:mf.view_formation_formation_line
+#: model_terms:ir.ui.view,arch_db:mf.view_formation_formation_liste
+msgid "formation"
+msgstr ""
+
+#. module: mf
+#: model:ir.actions.act_window,name:mf.form_formation_action
+msgid "formation formation"
+msgstr ""
+
+#. module: mf
+#: model:ir.ui.menu,name:mf.formation_menu
+msgid "formation menu principal"
+msgstr ""
+
+#. module: mf
+#: model_terms:ir.ui.view,arch_db:mf.view_form_formation_salle_2
+msgid "formation salle"
+msgstr ""
+
+#. module: mf
+#: model_terms:ir.ui.view,arch_db:mf.view_form_formation_type_2
+msgid "formation type"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_formation_line__employee_id
+msgid "l'employee"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_formation_line__formation_id
+msgid "la formation"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_formation__salle_id
+msgid "la salle"
+msgstr ""
+
+#. module: mf
+#: model:ir.model,name:mf.model_formation_salle_immo
+msgid ""
+"la table qui contient les equipement de la salle (produit, valeur, remarque,"
+" lien vers la salle)"
+msgstr ""
+
+#. module: mf
+#: model:ir.model,name:mf.model_formation_salle
+msgid "la table qui contient les salles de formation"
+msgstr ""
+
+#. module: mf
+#: model:ir.model,name:mf.model_formation_type
+msgid "la table qui contient les types de formation"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_formation__formateur_id
+msgid "le formateur"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_formation__type_id
+msgid "le type"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields.selection,name:mf.selection__formation_salle__status__libre
+msgid "libre"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_salle_immo__produit_id
+msgid "produit"
+msgstr ""
+
+#. module: mf
+#: model:ir.actions.act_window,name:mf.formation_action
+#: model:ir.ui.menu,name:mf.formation_salle_menu
+msgid "salle"
+msgstr ""
+
+#. module: mf
+#: model:ir.actions.act_window,name:mf.formation_action_type
+#: model:ir.ui.menu,name:mf.formation_type_menu
+msgid "type"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields,field_description:mf.field_formation_formation__description_f
+msgid "type_id.description"
+msgstr ""
+
+#. module: mf
+#: model:ir.model.fields.selection,name:mf.selection__formation_formation__status__new
+msgid "à programmer"
+msgstr ""

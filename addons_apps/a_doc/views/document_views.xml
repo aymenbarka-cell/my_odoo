@@ -1,0 +1,87 @@
+<odoo>
+    <record id="view_document_list" model="ir.ui.view">
+        <field name="name">document.archive.list</field>
+        <field name="model">document.archive</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="reference"/>
+                <field name="date"/>
+                <field name="desk_id"/>
+            </list>
+        </field>
+        
+    </record>
+
+   <record id="view_document_form" model="ir.ui.view">
+    <field name="name">document.archive.form</field>
+    <field name="model">document.archive</field>
+    <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group>
+                    <field name="name"/>
+                    <field name="reference"/>
+                    <field name="date"/>
+                </group>
+
+                <group string="📁 Archive Location (Fill from top to bottom)">
+                    <field name="direction_id"/>
+                    <field name="department_id"/>
+                    <field name="section_id"/>
+                    <field name="desk_id"/>
+                </group>
+                <group string="📂 Classification">
+                     <field name="category_id"/>
+                     <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                </group>
+
+                <group string="File">
+                    <field name="file" filename="file_name"/>
+                    <field name="file_name" invisible="1"/>
+                </group>
+                <group string="Description">
+                    <field name="description"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+    <!-- =============== DASHBOARD VIEWS =============== -->
+
+<!-- Pivot: Documents by Department -->
+<record id="view_document_pivot_department" model="ir.ui.view">
+    <field name="name">Documents by Department</field>
+    <field name="model">document.archive</field>
+    <field name="arch" type="xml">
+        <pivot>
+            <field name="department_id" type="row"/>
+            <field name="count_helper" type="measure"/>
+        </pivot>
+    </field>
+</record>
+
+<!-- Pivot: Documents by Direction -->
+<record id="view_document_pivot_direction" model="ir.ui.view">
+    <field name="name">Documents by Direction</field>
+    <field name="model">document.archive</field>
+    <field name="arch" type="xml">
+        <pivot>
+            <field name="direction_id" type="row"/>
+            <field name="count_helper" type="measure"/>
+        </pivot>
+    </field>
+</record>
+
+<!-- Graph: Bar chart by Department -->
+<record id="view_document_graph_department" model="ir.ui.view">
+    <field name="name">Documents Graph by Department</field>
+    <field name="model">document.archive</field>
+    <field name="arch" type="xml">
+        <graph>
+            <field name="department_id"/>
+            <field name="count_helper" operator="+"/>
+        </graph>
+    </field>
+</record>
+</odoo>

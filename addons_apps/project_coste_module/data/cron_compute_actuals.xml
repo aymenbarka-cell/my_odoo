@@ -1,0 +1,11 @@
+<odoo>
+    <record id="ir_cron_compute_construction_actuals" model="ir.cron">
+        <field name="name">Recompute construction actual costs</field>
+        <field name="model_id" ref="model_construction_project"/>
+        <field name="state">code</field>
+        <field name="code">model.search([]).action_recompute_actuals()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">hours</field>
+         <field name="active">True</field>
+    </record>
+</odoo>

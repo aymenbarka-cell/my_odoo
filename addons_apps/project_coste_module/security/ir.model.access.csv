@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_project_product_list,access_project_product_list,model_project_product_list,,1,1,1,1
+access_project_cost_estimate,access_project_cost_estimate,model_project_cost_estimate,,1,1,1,1
+access_project_cost_estimate_line,access_project_cost_estimate_line,model_project_cost_estimate_line,,1,1,1,1
+access_project_add_products_wizard,access_project_add_products_wizard,model_project_add_products_wizard,,1,0,0,0
+access_project_select_products_wizard,access_project_select_products_wizard,model_project_select_products_wizard,,1,0,0,0

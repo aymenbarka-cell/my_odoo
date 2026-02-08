@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_formation_salle,formation salle,model_formation_salle,base.group_system,1,1,1,1
+access_formation_type,formation type,model_formation_type,base.group_system,1,1,1,1
+access_formation_formation,formation formation,model_formation_formation,base.group_system,1,1,1,1
+access_formation_formation_line,formation formation line,model_formation_formation_line,base.group_system,1,1,1,1
+access_formation_salle_equipement,formation salle equipement,model_formation_salle_immo,base.group_system,1,1,1,1

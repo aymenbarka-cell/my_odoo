@@ -1,0 +1,4 @@
+<odoo>
+    <report id="report_construction_project" model="construction.project" string="Construction Project Report" report_type="qweb-pdf" name="construction_cost.report_construction_project" file="construction_cost.report_construction_project"/>
+    <!-- Add QWeb templates under views/ for PDF rendering as needed. -->
+</odoo>

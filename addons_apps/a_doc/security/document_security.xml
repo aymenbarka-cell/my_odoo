@@ -1,0 +1,53 @@
+<odoo>
+    <!-- Main rule (location + category) -->
+    <record id="rule_document_user_access" model="ir.rule">
+        <field name="name">Document: User Location + Category Access</field>
+        <field name="model_id" ref="model_document_archive"/>
+        <field name="domain_force">[
+            '&amp;',
+            '|', '|', '|',
+                ('direction_id', 'in', user.document_access_ids.direction_id.ids),
+                ('department_id', 'in', user.document_access_ids.department_id.ids),
+                ('section_id', 'in', user.document_access_ids.section_id.ids),
+                ('desk_id', 'in', user.document_access_ids.desk_id.ids),
+            ('category_id', 'in', user.document_access_ids.category_ids.ids)
+        ]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Rule 1: READ-ONLY users -->
+    <record id="rule_document_read_only" model="ir.rule">
+        <field name="name">Document: Read Only Access</field>
+        <field name="model_id" ref="model_document_archive"/>
+        <field name="domain_force">[
+            '|', '|', '|',
+                ('direction_id', 'in', user.document_access_ids.filtered(lambda a: a.permission_level == 'read').direction_id.ids),
+                ('department_id', 'in', user.document_access_ids.filtered(lambda a: a.permission_level == 'read').department_id.ids),
+                ('section_id', 'in', user.document_access_ids.filtered(lambda a: a.permission_level == 'read').section_id.ids),
+                ('desk_id', 'in', user.document_access_ids.filtered(lambda a: a.permission_level == 'read').desk_id.ids)
+        ]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- RULE 2: READ & WRITE ACCESS -->
+    <record id="rule_document_read_write" model="ir.rule">
+        <field name="name">Document: Read &amp; Write Access</field>
+        <field name="model_id" ref="model_document_archive"/>
+        <field name="domain_force">[
+            '|', '|', '|',
+                ('direction_id', 'in', user.document_access_ids.filtered(lambda a: a.permission_level == 'write').direction_id.ids),
+                ('department_id', 'in', user.document_access_ids.filtered(lambda a: a.permission_level == 'write').department_id.ids),
+                ('section_id', 'in', user.document_access_ids.filtered(lambda a: a.permission_level == 'write').section_id.ids),
+                ('desk_id', 'in', user.document_access_ids.filtered(lambda a: a.permission_level == 'write').desk_id.ids)
+        ]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+</odoo>

@@ -1,0 +1,29 @@
+<odoo>
+    <!-- Extend Product Form -->
+    <record id="view_product_template_form_kit" model="ir.ui.view">
+        <field name="name">product.template.form.kit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <sheet position="inside">
+                <group>
+                    <field name="is_kit"/>
+                    <field name="kit_total_cost" readonly="1" invisible="not is_kit"/>
+                    <field name="kit_available_qty" readonly="1" invisible="not is_kit"/>
+                </group>
+                <notebook>
+                    <page string="Kit Components" invisible="not is_kit">
+                        <field name="kit_line_ids">
+                            <list editable="bottom">
+                                <field name="product_id"/>
+                                <field name="quantity"/>
+                                <field name="unit_cost" readonly="1"/>
+                                <field name="subtotal" readonly="1"/>
+                            </list>
+                        </field>
+                    </page>
+                </notebook>
+            </sheet>
+        </field>
+    </record>
+</odoo>

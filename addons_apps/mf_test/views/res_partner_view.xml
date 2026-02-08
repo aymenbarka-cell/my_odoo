@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<odoo>
+
+    <record id="view_res_partner_formation_form" model="ir.ui.view">
+            <field name="name">res partner formation .MF</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+                <field name="arch" type="xml">
+                    <xpath expr="//field[@name='category_id']" position="after">
+                            <field name="formateur" widget="boolean_toggle"/>
+                        <button string="Affecter DZ"  class="btn"
+                                type="object"      name="affecter"/>
+                        <button string="Dupliquer"  class="btn"
+                                type="object"      name="dupliquer"/>
+                    </xpath>
+                </field>
+    </record>
+</odoo>

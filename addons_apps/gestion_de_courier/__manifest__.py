@@ -1,0 +1,22 @@
+{
+    'name': 'Gestion de Courrier',
+    'version': '1.0',
+    'summary': 'Courrier management with departmental archiving and sequences (Community)',
+    'description': 'Register, track, assign and archive courriers by department and desk.',
+    'author': 'Your Name',
+    'category': 'Administration',
+    'depends': ['base', 'mail', 'hr'],
+    'data': [
+        'security/security.xml',
+        'security/ir.model.access.csv',
+        'security/record_rules.xml',
+        'data/courrier_sequence.xml',
+        'views/menu.xml',
+        'views/courrier_views.xml',
+        'views/desk_views.xml',
+        'views/archive_views.xml',
+        'views/sequence_views.xml',
+    ],
+    'installable': True,
+    'application': True,
+}

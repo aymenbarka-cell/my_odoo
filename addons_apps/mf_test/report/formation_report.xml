@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="report_formation_report"  model="ir.actions.report">
+        <field name="name">Formation report</field>
+        <field name="model">formation.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">mf_test.template_formation_report</field>
+        <field name="report_file">mf_test.template_formation_report</field>
+    </record>
+
+        <template id="template_formation_report">
+    <t t-foreach="docs" t-as="o">
+        <t t-call="web.html_container">
+            <t t-call="web.basic_layout">
+                <div class="page">
+                    <h3>Les Formations :</h3>
+                    <t t-set="formations" t-value="o.get_formation()"/>
+
+                    <table class="table table-sm table-bordered mt-2">
+                        <thead>
+                            <tr>
+                                <th>Nom de la formation</th>
+                                <th>Date de début</th>
+                                <th>Date de fin</th>
+                                <th>Coût total (Département)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="formations.items()" t-as="item">
+                                <tr>
+                                    <td><t t-esc="item[0].name"/></td>
+                                    <td><t t-esc="item[0].date_deb"/></td>
+                                    <td><t t-esc="item[0].date_fin"/></td>
+                                    <td><t t-esc="item[1]"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </t>
+</template>
+
+
+</odoo>

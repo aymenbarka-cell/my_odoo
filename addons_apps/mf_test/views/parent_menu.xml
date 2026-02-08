@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+        <!-- add the parent menu -->
+        <!-- name + sequence where the sequence is the importance of the menu in the list 1 = very important  -->
+        <menuitem id="formation_menu"
+                  name="Formations"
+                  web_icon="mf_test,static/description/logo_mf.png"
+                  />
+</odoo>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Class list View -->
+    <record id="view_school_class_list" model="ir.ui.view">
+        <field name="name">school.class.list</field>
+        <field name="model">school.class</field>
+        <field name="arch" type="xml">
+            <list string="Classes">
+                <field name="name"/>
+                <field name="section"/>
+                <field name="grade"/>
+                <field name="academic_year"/>
+                <field name="class_type_id"/>
+                <field name="monthly_fee"/>
+                <field name="is_active"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Class Form View -->
+    <record id="view_school_class_form" model="ir.ui.view">
+        <field name="name">school.class.form</field>
+        <field name="model">school.class</field>
+        <field name="arch" type="xml">
+            <form string="Class">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="section"/>
+                        <field name="grade"/>
+                        <field name="academic_year"/>
+                        <field name="class_type_id"/>
+                        <field name="monthly_fee" readonly="1"/>
+                    </group>
+
+                    <group>
+                        <field name="is_active"/>
+                        <field name="activation_date"/>
+                    </group>
+
+                    <group string="Study Times">
+                        <field name="study_time_ids" widget="many2many_tags"/>
+                    </group>
+
+                  <group string="Students">
+    <field name="students" mode="list,form">
+        <list string="Students">
+            <field name="name"/>
+            <field name="admission_no"/>
+            <field name="gender"/>
+        </list>
+    </field>
+</group>
+
+
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_school_class" model="ir.actions.act_window">
+        <field name="name">Classes</field>
+        <field name="res_model">school.class</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_school_classes" name="Classes" parent="menu_school_root" action="action_school_class"/>
+
+    <!-- Study Time Configuration -->
+    <record id="view_school_study_time_list" model="ir.ui.view">
+        <field name="name">school.study.time.list</field>
+        <field name="model">school.study.time</field>
+        <field name="arch" type="xml">
+            <list string="Study Times">
+                <field name="name"/>
+                <field name="day_of_week"/>
+                <field name="start_time"/>
+                <field name="end_time"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_school_study_time_form" model="ir.ui.view">
+        <field name="name">school.study.time.form</field>
+        <field name="model">school.study.time</field>
+        <field name="arch" type="xml">
+            <form string="Study Time">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="day_of_week"/>
+                        <field name="start_time"/>
+                        <field name="end_time"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_school_study_time" model="ir.actions.act_window">
+        <field name="name">Study Times</field>
+        <field name="res_model">school.study.time</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_school_study_time" name="Study Times" parent="menu_school_root" action="action_school_study_time"/>
+</odoo>

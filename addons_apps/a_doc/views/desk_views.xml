@@ -1,0 +1,40 @@
+<odoo>
+    <record id="view_desk_list" model="ir.ui.view">
+        <field name="name">document.desk.list</field>
+        <field name="model">document.desk</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="section_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_desk_form" model="ir.ui.view">
+        <field name="name">document.desk.form</field>
+        <field name="model">document.desk</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="section_id" options="{'no_create': True}"/>
+                    </group>
+                    <notebook>
+                        <page string="Documents">
+                            <field name="document_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="reference"/>
+                                    <field name="date"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

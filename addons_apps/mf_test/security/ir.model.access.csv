@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_formation_salle1,formation salle manipulation,model_formation_salle,mf_test.formation_g1,1,1,1,1
+access_formation_salle2,formation salle lecture,model_formation_salle,mf_test.formation_g3,1,0,0,0
+access_formation_salle_immo1,formation salle immo manipulation,model_formation_salle_immo,mf_test.formation_g1,1,1,1,1
+access_formation_salle_immo2,formation salle immo lecture,model_formation_salle_immo,mf_test.formation_g3,1,0,0,0
+access_formation_type1,formation type manipulation,model_formation_type,mf_test.formation_g1,1,1,1,1
+access_formation_type2,formation type lecture,model_formation_type,mf_test.formation_g3,1,0,0,0
+access_formation_formation1,formation formation manipulation,model_formation_formation,mf_test.formation_g1,1,1,1,1
+access_formation_formation2,formation formation lecture,model_formation_formation,mf_test.formation_g3,1,0,0,0
+access_formation_formation_line1,formation formation_line manipulation,model_formation_formation_line,mf_test.formation_g1,1,1,1,1
+access_formation_formation_line2,formation formation_line lecture,model_formation_formation_line,mf_test.formation_g3,1,0,0,0
+
+
+access_formation_report,formation report manipulation,model_formation_report,mf_test.formation_g1,1,1,1,1
